@@ -2,7 +2,7 @@ package com.ashwani.poc.command.pattern.commandobjects;
 
 import com.ashwani.poc.command.pattern.receiver.Car;
 
-public class CarStopCommand implements CommandBase {
+public class CarStopCommand implements CommandBase<String> {
 
 	private final Car car;
 
@@ -10,9 +10,9 @@ public class CarStopCommand implements CommandBase {
 		this.car = car;
 	}
 
-	public void execute() {
-		System.out.println("CarStopCommand.execute() - Stopping the car");
+	public String execute() {
 		car.stop();
+		return "CarStopCommand.execute() - Stopping the car";
 	}
 
 	public void undo() {

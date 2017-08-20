@@ -1,8 +1,8 @@
 package com.ashwani.poc.command.pattern.commandobjects;
 
-public interface CommandBase {
+public interface CommandBase<T> {
 
-	void execute();
+	T execute();
 
 	void undo();
 }

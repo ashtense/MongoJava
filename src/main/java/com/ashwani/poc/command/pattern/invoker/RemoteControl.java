@@ -4,17 +4,19 @@ import com.ashwani.poc.command.pattern.commandobjects.CommandBase;
 
 public class RemoteControl {
 
-	CommandBase onCommand, releaseCommand, undoCommand;
+	CommandBase<String> onCommand, releaseCommand, undoCommand;
 
-	public void onButtonPressed(final CommandBase onCommand) {
+	public void onButtonPressed(final CommandBase<String> onCommand) {
 		this.onCommand = onCommand;
-		onCommand.execute();
+		final String execute = onCommand.execute();
+		System.err.println(execute);
 		undoCommand = onCommand;
 	}
 
-	public void onButtonRelease(final CommandBase releaseCommand) {
+	public void onButtonRelease(final CommandBase<String> releaseCommand) {
 		this.releaseCommand = releaseCommand;
-		releaseCommand.execute();
+		final String execute = releaseCommand.execute();
+		System.err.println(execute);
 		undoCommand = releaseCommand;
 	}
 

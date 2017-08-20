@@ -11,12 +11,12 @@ public class RemoteControlUser {
 		final RemoteControl remoteControl = new RemoteControl();
 		final Car car = new Car();
 
-		final CommandBase carMoveCommand = new CarMoveCommand(car);
+		final CommandBase<String> carMoveCommand = new CarMoveCommand(car);
 		remoteControl.onButtonPressed(carMoveCommand);
 		Thread.sleep(5000);
 		remoteControl.undoAction();
 
-		final CommandBase carStopCommand = new CarStopCommand(car);
+		final CommandBase<String> carStopCommand = new CarStopCommand(car);
 		remoteControl.onButtonPressed(carStopCommand);
 		Thread.sleep(3000);
 		remoteControl.undoAction();
